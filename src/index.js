@@ -6,30 +6,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict";
+'use strict';
 
-const babel = require("babel-core");
-const config = require("./config");
-const fs = require("fs");
-const Promise = require("bluebird");
-
-function transformFile(filename) {
-    return Promise.fromCallback(done => {
-        return babel.transformFile(filename, config.create(), done);
-    });
+function createConfig() {
+  return {
+    plugins: [
+      require.resolve('babel-plugin-transform-decorators-legacy'),
+    ],
+    presets: [
+      require.resolve('babel-preset-es2015'),
+      require.resolve('babel-preset-react'),
+      require.resolve('babel-preset-stage-0'),
+    ],
+  };
 }
 
-function inPlace(filename) {
-    return transformFile(filename).then(function (result) {
-        // const mapFilename = filename;
-        return Promise.all([
-            Promise.fromCallback(done => fs.writeFile(filename, result.code, done))
-            // Promise.fromCallback(done => fs.writeFile(mapFilename, result.map, done))
-        ]);
-    });
-}
-
-module.exports = {
-    inPlace: inPlace,
-    transformFile: transformFile
-};
+module.exports = createConfig;

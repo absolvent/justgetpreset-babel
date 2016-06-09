@@ -9,7 +9,12 @@
 'use strict';
 
 const gulp = require('gulp');
+const esformatter = require('lookly-preset-esformatter');
 const eslint = require('lookly-preset-eslint');
+
+gulp.task('format', function () {
+  return esformatter.formatGlob('./src/**/*.js');
+});
 
 gulp.task('lint', function () {
   return eslint('./src/**/*.js');
