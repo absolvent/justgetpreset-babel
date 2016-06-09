@@ -1,0 +1,24 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "lookly-preset-esformatter": "^1.1.0",
+    "lookly-preset-eslint": "^1.4.11"
+  },
+  "description": "Universal babel preset.",
+  "license": "MIT",
+  "keywords": [
+    "babel",
+    "preset"
+  ],
+  "main": "src",
+  "name": "lookly-preset-babel",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lookly/lookly-preset-babel.git"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "version": "1.0.0"
+}
