@@ -12,6 +12,7 @@ function createConfig() {
   return {
     plugins: [
       require.resolve('babel-plugin-transform-decorators-legacy'),
+      require.resolve('babel-plugin-add-module-exports'),
     ],
     presets: [
       require.resolve('babel-preset-react'),
